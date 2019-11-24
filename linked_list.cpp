@@ -8,8 +8,16 @@ struct Node* head = NULL;
 void insert(int new_data) { 
    struct Node* new_node = new Node; 
    new_node->data = new_data; 
-   new_node->next = head; 
-   head = new_node; 
+   new_node->next = head;
+   if (head == NULL){
+      head = new_node;
+   } 
+   else{
+   Node* temp = head;
+      while(temp->next != NULL)
+         temp = temp->next;
+    temp->next = new_node;
+   }
 } 
 void display() { 
    struct Node* ptr;
